@@ -1,0 +1,25 @@
+{
+  "name": "iotec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "device.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rodolfoarv/IoTec.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rodolfoarv/IoTec/issues"
+  },
+  "homepage": "https://github.com/Rodolfoarv/IoTec#readme",
+  "dependencies": {
+    "azure-event-hubs": "0.0.3",
+    "azure-iot-device": "^1.0.15",
+    "azure-iot-device-amqp": "^1.0.15",
+    "azure-iothub": "^1.0.17"
+  }
+}
