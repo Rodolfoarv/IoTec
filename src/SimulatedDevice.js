@@ -69,7 +69,6 @@ var connectCallback = function (err) {
         var litersPerHour = 10 + (Math.random() * 4);
         var strainerHeight = 8 + (Math.random() * 3);
         var location = generateRandomPoints({'lat':19.590116392958844, 'lng':-99.23340797424316}, 10000, 1);
-        console.log(location);
         var data = JSON.stringify({ deviceId: 'strainer_device',
                                     litersPerHour: litersPerHour,
                                     strainerHeight: strainerHeight,
