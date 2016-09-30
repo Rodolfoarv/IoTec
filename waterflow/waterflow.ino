@@ -34,21 +34,20 @@ void loop ()
       // Pulse frequency (Hz) = 7.5Q, Q is flow rate in L/min. n
       l_hour = (flow_frequency * 60 / 7.5); // (Pulse frequency x 60 min) / 7.5Q = flowrate in L/hour
       flow_frequency = 0; // Reset Counter
-      Serial.print(l_hour, DEC); // Print litres/hour
-      Serial.println(" L/hour");
+      Serial.print(l_hour);
+      Serial.print(",");
+      digitalWrite(3,LOW); /* Por cuestión de estabilización del sensor*/
+      delayMicroseconds(5);
+      digitalWrite(3, HIGH); /* envío del pulso ultrasónico*/
+      delayMicroseconds(5);
+      timeSonar=pulseIn(4, HIGH); /* Función para medir la longitud del pulso entrante. Mide el tiempo que transcurrido entre el envío
+      del pulso ultrasónico y cuando el sensor recibe el rebote, es decir: desde que el pin 12 empieza a recibir el rebote, HIGH, hasta que
+      deja de hacerlo, LOW, la longitud del pulso entrante*/
+      distanceSonar= int(0.017*timeSonar); /*fórmula para calcular la distancia obteniendo un valor entero*/
+      /*Monitorización en centímetros por el monitor serial*/
+      Serial.println(distanceSonar);
+      delay(1000);
    } 
 
-  digitalWrite(3,LOW); /* Por cuestión de estabilización del sensor*/
-  delayMicroseconds(5);
-  digitalWrite(3, HIGH); /* envío del pulso ultrasónico*/
-  delayMicroseconds(10);
-  timeSonar=pulseIn(4, HIGH); /* Función para medir la longitud del pulso entrante. Mide el tiempo que transcurrido entre el envío
-  del pulso ultrasónico y cuando el sensor recibe el rebote, es decir: desde que el pin 12 empieza a recibir el rebote, HIGH, hasta que
-  deja de hacerlo, LOW, la longitud del pulso entrante*/
-  distanceSonar= int(0.017*timeSonar); /*fórmula para calcular la distancia obteniendo un valor entero*/
-  /*Monitorización en centímetros por el monitor serial*/
-  Serial.println("Distancia ");
-  Serial.println(distanceSonar);
-  Serial.println(" cm");
-  delay(1000);
+
 }
