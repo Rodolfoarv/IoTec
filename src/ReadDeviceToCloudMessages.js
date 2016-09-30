@@ -1,7 +1,7 @@
 'use strict';
 
 var EventHubClient = require('azure-event-hubs').Client;
-var connectionString = 'HostName=IoTec.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=r8IyXHgUaa+yUZ3CL2L3Nj49HFirJRtLtVXP1puFrGo=';
+var connectionString = 'HostName=IoTecDemoDay.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=ey5rsvuPp3FrDXHcNWNx/o81HX9WuMAqvGegMAEI+0o=';
 var printError = function (err) {
   console.log(err.message);
 };

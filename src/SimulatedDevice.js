@@ -48,8 +48,8 @@ function generateRandomPoint(center, radius) {
 
 var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
 var Message = require('azure-iot-device').Message;
-var connectionString = 'HostName=IoTec.azure-devices.net;DeviceId=strainer_device;SharedAccessKey=wpeg4bdph9o5r5WdSoQhu915eppkv6h/OTBqokKijT4=';
-
+var connectionString = 'HostName=IoTecDemoDay.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=J/YzLj8/Z85br+GGWKTF8RCIZEiVDOPi+yR90JreHM4=';
+var connectionString = 'HostName=IoTecDemoDay.azure-devices.net;DeviceId=strainer_device;SharedAccessKey={yourdevicekey';
 var client = clientFromConnectionString(connectionString);
 function printResultFor(op) {
   return function printResult(err, res) {

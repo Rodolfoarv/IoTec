@@ -29,20 +29,28 @@ The application is divided in two folders
 Diagrams can be found in the following link:
 https://docs.google.com/document/d/1zTaJCv_LHLP8VI63-R8scHCcKU2gDYiGnjLaeHEtoPM/edit
 
+/src: The folder describes all the data files used to transmit the data to Azure IoT
+from the device. It will also contain the training dataset by typing the following command:
 
+  python ReadArduinoData.py
 
+Finally you can deploy the results to Azure by running the following commands in different
+terminals:
 
+  #Terminal 1:
+  node ReadDeviceToCloudMessages.js
 
-
-
-
-
-Once the app has been loaded, you can access the functions within the program.
+  #Terminal 2:
+  node SimulatedDevice.js
 
 
 ## Authors
 
 - Rodolfo Andrés Ramírez Valenzuela
+- Itzel Corbalá Rosales
+- María Alicia Palma del Rosal
+- Carlos Alberto Cota Chavez
+
 
 ## Blogger
 
