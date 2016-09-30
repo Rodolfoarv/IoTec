@@ -52,11 +52,6 @@ terminals:
 - Carlos Alberto Cota Chavez
 
 
-## Blogger
-
-This is a blog I am currently writting on articles related to the Clojure, Lisp and programming languages.
-http://rodolfoarvpl.blogspot.mx/
-
 ## License
 
 See [LICENSE] (https://github.com/Rodolfoarv/Evil-Hangman/blob/master/LICENSE)
