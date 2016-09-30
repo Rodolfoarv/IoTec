@@ -68,6 +68,29 @@ var serialPort = new SerialPort("COM3", {
 var getInfo = function() {
     serialPort.on('data', function(data) {
         var split_values = data.replace(/[\n\r]+/g, '').split(',');
+        // var litersPerHour = 10 + (Math.random() * 120);
+        // var strainerHeight = 8 + (Math.random() * 3);
+        var litersPerHour = split_values[0];
+        var strainerHeight = split_values[1];
+        var location = generateRandomPoints({'lat':19.590116392958844, 'lng':-99.23340797424316}, 10000, 1);
+        var currentdate = new Date();
+        var date = currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/"
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
+        var data = JSON.stringify({ deviceId: 'strainer_device',
+                                    litersPerHour: litersPerHour,
+                                    strainerHeight: strainerHeight,
+                                    location: location,
+                                    date: date
+                                  });
+
+        var message = new Message(data);
+        console.log("Sending message: " + message.getData());
+        client.sendEvent(message, printResultFor('send'));
+
         return split_values
     });
 
@@ -83,28 +106,7 @@ var connectCallback = function (err) {
     // Create a message and send it to the IoT Hub every second
     setInterval(function(){
 
-        var j = getInfo();
-        console.log(j)
-        var litersPerHour = 10 + (Math.random() * 120);
-        var strainerHeight = 8 + (Math.random() * 3);
-        var location = generateRandomPoints({'lat':19.590116392958844, 'lng':-99.23340797424316}, 10000, 1);
-        var currentdate = new Date();
-    		var date = currentdate.getDate() + "/"
-                    + (currentdate.getMonth()+1)  + "/"
-                    + currentdate.getFullYear() + " "
-                    + currentdate.getHours() + ":"
-                    + currentdate.getMinutes() + ":"
-                    + currentdate.getSeconds();
-        var data = JSON.stringify({ deviceId: 'strainer_device',
-                                    litersPerHour: litersPerHour,
-                                    strainerHeight: strainerHeight,
-                                    location: location,
-                                    date: date
-                                	});
-
-        var message = new Message(data);
-        console.log("Sending message: " + message.getData());
-        client.sendEvent(message, printResultFor('send'));
+        getInfo();
     }, 1000);
   }
 };
