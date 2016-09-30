@@ -32,16 +32,16 @@ https://docs.google.com/document/d/1zTaJCv_LHLP8VI63-R8scHCcKU2gDYiGnjLaeHEtoPM/
 /src: The folder describes all the data files used to transmit the data to Azure IoT
 from the device. It will also contain the training dataset by typing the following command:
 
-  python ReadArduinoData.py
+    python ReadArduinoData.py
 
 Finally you can deploy the results to Azure by running the following commands in different
 terminals:
 
-  #Terminal 1:
-  node ReadDeviceToCloudMessages.js
+    #Terminal 1:
+    node ReadDeviceToCloudMessages.js
 
-  #Terminal 2:
-  node SimulatedDevice.js
+    #Terminal 2:
+    node SimulatedDevice.js
 
 
 ## Authors
